@@ -163,7 +163,7 @@ function createFirework() {
 
 function showHappyEnding() {
     const message = document.createElement('div');
-    message.textContent = 'Happy Ending!';
+    message.textContent = 'Happy Ending, 2 người họ sau đó đi ăn KFC rất nhiều 🐔🐔!';
     message.style.position = 'fixed';
     message.style.top = '50%';
     message.style.left = '50%';
