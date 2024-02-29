@@ -1,3 +1,31 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    const storyTextElement = document.getElementById('storyText');
+    const continueButton = document.getElementById('continueButton');
+    const story = "Ngày xửa ngày xưa, có một cặp đôi gặp nhau trong câu lạc bộ Neo Culture Tech và yêu nhau sâu đậm cùng nhau, nhưng bởi chàng trai hậu đậu và hay trễ giờ nên đã làm cô gái bị tổn thương và vô tình đẩy cô ấy rời xa. Nhận ra lỗi lầm mình, chàng trai không ngại khó khăn đi tìm cô gái";
+    let index = 0;
+
+    function typeStory() {
+        if (index < story.length) {
+            storyTextElement.innerHTML += story.charAt(index);
+            index++;
+            setTimeout(typeStory, 50); // Adjust typing speed as needed
+        } else {
+            continueButton.style.display = 'inline-block'; // Show the continue button after the story is typed out
+        }
+    }
+
+    typeStory(); // Start typing the story
+
+    continueButton.addEventListener('click', function() {
+        document.getElementById('introScreen').style.display = 'none';
+        document.querySelector('.game-container').style.display = 'block';
+    });
+});
+
+
+
+// Existing Game Logic
 document.addEventListener('keydown', function (event) {
     const mario = document.getElementById('mario');
     const currentPosition = mario.offsetLeft;
@@ -32,6 +60,8 @@ function moveRight(mario, currentPosition) {
     mario.style.left = `${newPosition}px`;
     checkCollision(); // Check for collision after moving
 }
+
+// Rest of your existing code remains unchanged
 
 function checkCollision() {
     const mario = document.getElementById('mario');
@@ -69,7 +99,7 @@ function showPrincessMessage() {
     messageDiv.style.borderRadius = '10px'; // Rounded corners for a softer look
     messageDiv.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)'; // A subtle shadow for depth
     messageDiv.innerHTML = `
-        <p style="font-style: italic; color: darkmagenta;">"Em bun qua chong oi, anh no lam vay voi em ho huhuhu?"</p>
+        <p style="font-style: italic; color: darkmagenta;">"Em bùn quá chồng oi, anh no lam vay voi em ho huhuhu?"</p>
         <button onclick="leavePrincess()" style="margin-right: 10px; background-color: lightcoral; color: white; border: none; border-radius: 5px; padding: 5px 10px;">Leave</button>
         <button onclick="encouragePrincess()" style="background-color: lightgreen; color: white; border: none; border-radius: 5px; padding: 5px 10px;">Encourage</button>
     `;
