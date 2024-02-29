@@ -39,6 +39,20 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+document.getElementById('mario').addEventListener('touchstart', function(e) {
+    // Determine touch action based on the touch point
+    const touchX = e.touches[0].clientX;
+
+    // Example: Move Mario left or right based on touch position
+    if (touchX < window.innerWidth / 2) {
+        moveLeft(); // Assume you have a function to handle Mario's left movement
+    } else {
+        moveRight(); // Assume you have a function to handle Mario's right movement
+    }
+
+    e.preventDefault(); // Prevent default touch behavior like scrolling
+}, { passive: false });
+
 function jump() {
     let mario = document.getElementById('mario');
     if (!mario.classList.contains('jump')) {
